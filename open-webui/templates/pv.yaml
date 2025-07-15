@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: open-webui-pv
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 200Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /data/install/openwebui/storage
+  persistentVolumeReclaimPolicy: Retain
