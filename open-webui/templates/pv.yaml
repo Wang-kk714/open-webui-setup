@@ -9,5 +9,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /data/install/openwebui/storage
+    path: /data/open-webui
   persistentVolumeReclaimPolicy: Retain

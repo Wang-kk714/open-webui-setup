@@ -11,7 +11,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "cuda"
+  tag: "ollama"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -119,6 +119,8 @@ volumes:
 volumeMounts:
   - name: open-webui-data
     mountPath: /app/backend/data
+  - name: open-webui-data
+    mountPath: /root/.ollama
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
