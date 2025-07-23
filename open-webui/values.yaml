@@ -60,18 +60,20 @@ service:
 ingress:
   enabled: true
   className: "nginx"
-  annotations: {}
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: omito.local
       paths:
-        - path: /
-          pathType: Prefix
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+        - path: /ollama/?(.*)
+          pathType: ImplementationSpecific
+  tls: 
+   - secretName: open-webui-tls
+     hosts:
+       - omito.local
 
 resources:
   limits:
